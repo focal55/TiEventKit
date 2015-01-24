@@ -133,6 +133,7 @@
     NSString *begin = [TiUtils stringValue:@"begin" properties:args];
     NSString *end = [TiUtils stringValue:@"end" properties:args];
     BOOL allDay = [TiUtils boolValue:@"allDay" properties:args def:NO];
+    NSTimeInterval alarmOffset = [TiUtils doubleValue:@"alarmOffset" properties:args def:0];
     
     // This code is just for Date formatting
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
@@ -151,6 +152,11 @@
         event.location = location;
         event.notes = notes;
         event.allDay = allDay;
+        
+        // Set Event Alarm if alarmOffset is greater than zero.
+        if (alarmOffset < 0) {
+            [event addAlarm:[EKAlarm alarmWithRelativeOffset:alarmOffset]];
+        }
         
         BOOL result = [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&err];
         

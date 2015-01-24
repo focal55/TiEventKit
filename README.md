@@ -19,6 +19,7 @@ Each event have this attributes:
 * begin (DATE)
 * end (DATE)
 * allDay (BOOL)
+* alarmOffset (INT)
 
 NOTE: The date format is: *"yyyy-MM-dd hh:mm:ss Z"*.
 
@@ -41,6 +42,7 @@ For compatibilty, you first need to ask authorization by user before create an E
 				location: "San Francisco",
 				begin: "2012-10-21 08:00:00 GMT",
 				end: "2012-10-23 18:00:00 GMT"
+                alarmOffset: -300
 			});
 
 			Ti.UI.createAlertDialog({
@@ -57,6 +59,19 @@ For compatibilty, you first need to ask authorization by user before create an E
 			}).show();
 		}
 	});
+
+## Event Alarms
+
+In order to set an Event Alarm, set alarmOffset to a negative value in the form of seconds. For example if you would like the alarm 5 minutes before the event set alarmOffset to -300. Here is a chart that matches options in the iOS Event edit screen.
+
+5  min  = -300
+15 min  = -900
+30 min  = -1800
+1 hour  = -3600
+2 hours = -7200
+1 day   = -86400
+2 days  = -172800
+1 week  = -604800
 
 ## Future supports
 
