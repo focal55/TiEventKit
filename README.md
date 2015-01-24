@@ -5,11 +5,11 @@ Titanium Appcelerator module that implements iOS Event Kit framework.
 ## Supports
 
 * iOS 4.0+
-* Titanium SDK 2.1.3.RC
+* Titanium SDK 3.4.1.GA
 
 ## What can I do with this module?
 
-For moment, you can create Events in user default calendar. In iOS 6, the user will be asked by permissions to access her calendar. In iOS 5, you don't need user permissions.
+You can create Events in user default calendar and set the Event Alarm if desired. In iOS 6, the user will be asked by permissions to access her calendar. In iOS 5, you don't need user permissions.
 
 Each event have this attributes:
 
@@ -73,7 +73,8 @@ In order to set an Event Alarm, set alarmOffset to a negative value in the form 
 2 days  = -172800
 1 week  = -604800
 
-## Future supports
+## Development History
 
-1. **Reminders** support.
-2. Create a method to verify if application is allowed to access the Calendar.
+This is a branch off of https://github.com/Nyvra/TiEventKit who implemented the Authorization capability neccessary for iOS 6+. This fork continues the development of this module by adding the following functionality.
+
+1. Event Alarms configurations (aka event reminders).
